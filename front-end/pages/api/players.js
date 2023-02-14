@@ -17,11 +17,8 @@ const getPlayerProfile = (req, res) => {
 
 
   axios.get(url).then((response) => {
-    // const status = response.status
-    // res.json(data)
     res.json(response.data)
   })
-  console.log('hi')
 
 }
   
