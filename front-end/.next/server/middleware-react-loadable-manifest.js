@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={}
+self.__REACT_LOADABLE_MANIFEST={"index.js -> ./components/navBar.js":{"id":"index.js -> ./components/navBar.js","files":["static/chunks/pages_components_navBar_js.js"]},"index.js -> ./components/playerCard.js":{"id":"index.js -> ./components/playerCard.js","files":["static/chunks/pages_components_playerCard_js.js"]}}
