@@ -1,4 +1,10 @@
+import {playerDetails, playerHeadShotIDs} from '../api/playerProfile'
+
 const playerCard = () => {
+    playerHeadShotIDs.then(
+        (data) => {console.log('data', data)}
+    )
+    console.log(playerIDs)
   return (
     
 <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
