@@ -2,15 +2,27 @@ import axios from 'axios'
 
 import {playerProfile} from '../../../sample_api_responses/playerProfile'
 
-const playerDetails = playerProfile
 
-const playerHeadShotIDs = (req, res) => {
+
+const playerData = async (req, res) => {
+  const playerDetails = playerProfile
+  
   const url = "https://data.nba.net/data/10s/prod/v1/2022/players.json"
 
-  axios.get(url).then((response) => {
-    res.json(response.data)
+  const allPlayers = await axios.get(url).then((response) => {
+    return response.data.league.standard
+  })
+
+  res.json({
+    playerDetails,
+    allPlayers: allPlayers,
   })
 }
 
 
-export {playerDetails, playerHeadShotIDs}
+export default playerData
+
+
+// import {playerIds} from '../../../sample_api_responses/nbaPlayerIDs'
+
+// export const playerIdsforHeadshots = playerIds
