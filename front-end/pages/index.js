@@ -10,15 +10,9 @@ export default function Index () {
   //   console.log(data)
   // })
   const NavBar = dynamic(() => import ('./components/navBar.js'))
-  const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
-    suspense: true,
-  });
   
   return <div>
-    <h1 className="text-3xl font-bold underline">Home page</h1>
-    {/* <NavBar /> */}
-    <Suspense fallback={<div>Loading...</div>}>
-      <PlayerCard />
-    </Suspense>
+    {/* <h1 className="text-3xl font-bold underline">Home page</h1> */}
+    <NavBar />
   </div>
 }
