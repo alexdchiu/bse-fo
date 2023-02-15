@@ -2,6 +2,8 @@ import teamProfile from '../../../sample_api_responses/teamProfile'
 
 import { seasonalStats } from '../../../sample_api_responses/seasonalStats'
 
+import {teamStats} from '../api/seasonalStats'
+
 const PlayerRow = (data) => {
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -62,7 +64,7 @@ const PlayerRow = (data) => {
 const rosterTable = () => {
   // const teamData = teamProfile.players
   // console.log(seasonalStats)
-  const playersData = Object.values(seasonalStats.players)
+  const playersData = Object.values(teamStats.players)
   // console.log(teamData, playersData)
   
   return (
