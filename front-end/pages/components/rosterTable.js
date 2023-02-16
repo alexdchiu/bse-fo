@@ -1,8 +1,6 @@
-import teamProfile from '../../../sample_api_responses/teamProfile'
-
-import { seasonalStats } from '../../../sample_api_responses/seasonalStats'
-
 import {teamStats} from '../api/seasonalStats'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
 
 const PlayerRow = (data) => {
   return (
@@ -50,9 +48,6 @@ const PlayerRow = (data) => {
         {data.player.total.true_shooting_pct*100}%
       </td>
       <td className="px-6 py-4">
-        {data.player.average.efficiency}
-      </td>
-      <td className="px-6 py-4">
         {data.player.total.plus - data.player.total.minus}
       </td>
   </tr>
@@ -62,11 +57,32 @@ const PlayerRow = (data) => {
 
 
 const rosterTable = () => {
-  // const teamData = teamProfile.players
-  // console.log(seasonalStats)
   const playersData = Object.values(teamStats.players)
-  // console.log(teamData, playersData)
   
+  const [currRoster, setCurrRoster] = useState()
+
+  useEffect(() => {
+    axios.get('api/getCurrentRoster').then((response) => {
+      setCurrRoster(response.data.currTeam.players)
+    })
+  }, [])
+
+  const currRosterIDs = []
+
+  for (let i = 0; i < currRoster?.length; i++) {
+    currRosterIDs.push(currRoster[i].id)
+  }
+
+  var currPlayersData = playersData?.filter(
+    function(el) {
+      return currRoster?.find(currPlayer => {
+        return currPlayer.id === el.id
+      })
+    }
+  )
+
+  // console.log(currPlayersData, playersData, currRoster)
+
   return (
     
 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -116,67 +132,13 @@ const rosterTable = () => {
                     TS%
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    EFF
-                </th>
-                <th scope="col" className="px-6 py-3">
                     +/-
                 </th>
             </tr>
         </thead>
         <tbody>
-            {/* <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td className="px-6 py-4">
-                    Sliver
-                </td>
-                <td className="px-6 py-4">
-                    Laptop
-                </td>
-                <td className="px-6 py-4">
-                    $2999
-                </td>
-                <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td className="px-6 py-4">
-                    White
-                </td>
-                <td className="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td className="px-6 py-4">
-                    $1999
-                </td>
-                <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td className="px-6 py-4">
-                    Black
-                </td>
-                <td className="px-6 py-4">
-                    Accessories
-                </td>
-                <td className="px-6 py-4">
-                    $99
-                </td>
-                <td className="px-6 py-4 text-right">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr> */}
 
-            {playersData && playersData.map((player) => 
+            {currPlayersData && currPlayersData.map((player) => 
               <PlayerRow
                 key = {player.id}
                 player = {player} 

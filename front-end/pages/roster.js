@@ -15,6 +15,9 @@ const Roster = () => {
   const RosterTable = dynamic(() => import('./components/rosterTable'), {
     suspense: true,
   });
+  const PlayerCareerStatsTable = dynamic(() => import('./components/playerCareerStatsTable'), {
+    suspense: true,
+  });
   
   return <div>
     <Suspense fallback={<div>Loading...</div>}>
@@ -22,6 +25,9 @@ const Roster = () => {
     </Suspense>
     <Suspense fallback={<div>Loading...</div>}>
       <RosterTable />
+    </Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
+      <PlayerCareerStatsTable />
     </Suspense>
   </div>
   
