@@ -60,12 +60,15 @@ const rosterTable = () => {
   const playersData = Object.values(teamStats.players)
   
   const [currRoster, setCurrRoster] = useState()
+  
 
   useEffect(() => {
     axios.get('api/getCurrentRoster').then((response) => {
       setCurrRoster(response.data.currTeam.players)
     })
   }, [])
+
+  // console.log('allTeams', allTeams)
 
   const currRosterIDs = []
 

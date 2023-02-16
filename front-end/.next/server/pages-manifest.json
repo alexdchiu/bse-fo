@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/roster": "pages/roster.js",
-  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
-  "/api/playerProfile": "pages/api/playerProfile.js"
+  "/": "pages/index.js",
+  "/api/allTeams": "pages/api/allTeams.js"
 }
