@@ -1,4 +1,4 @@
-{
+export const currStandings = {
   "league": {
     "id": "4353138d-4c22-4396-95d8-5f587d2df25c",
     "name": "NBA",

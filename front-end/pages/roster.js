@@ -2,7 +2,6 @@ import axios from 'axios'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
-import teamProfile from '../../sample_api_responses/teamProfile'
 
 
 const Roster = () => {
