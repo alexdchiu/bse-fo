@@ -1,4 +1,10 @@
 {
+  "components/layout.js -> ./navBar.js": {
+    "id": "components/layout.js -> ./navBar.js",
+    "files": [
+      "static/chunks/pages_components_navBar_js.js"
+    ]
+  },
   "roster.js -> ./components/playerCard.js": {
     "id": "roster.js -> ./components/playerCard.js",
     "files": [

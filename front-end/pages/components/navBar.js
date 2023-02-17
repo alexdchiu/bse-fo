@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import AllTeams from '../components/allTeams'
+import RadarGraph from './radarGraph'
 
-const navBar = ({teamNames, teamIDs}) => {
+const navBar = ({teamNames, teamIDs, children}) => {
   const [open, setOpen] = useState(false)
   const handleOpen = () => {
     setOpen(!open)
@@ -269,10 +270,13 @@ const navBar = ({teamNames, teamIDs}) => {
          </li>
       </ul>
    </div>
-</aside>
+    </aside>
 
-    {/* <div className="p-4 sm:ml-64">
-      <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+    <div className="p-4 sm:ml-64">
+      <RadarGraph />
+      {children}
+     
+      {/* <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
                 <p className="text-2xl text-gray-400 dark:text-gray-500">+</p>
@@ -318,9 +322,9 @@ const navBar = ({teamNames, teamIDs}) => {
                 <p className="text-2xl text-gray-400 dark:text-gray-500">+</p>
             </div>
           </div>
-      </div>
-    </div> */}
-
+      </div> */}
+    </div>
+   
   </div>
 }
 
