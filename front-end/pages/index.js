@@ -46,17 +46,19 @@ export default function Index () {
     }
   }
 
+  teamNames.sort()
+  // console.log(teamNames)
 
   // console.log('conf', conferences)
-  console.log('div', divisions)
+  // console.log('div', divisions)
   // console.log('divnames', divisionNames)
   // console.log('teamnames', teamNames)
-  console.log(teamNames, teamIDs, Object.keys(teamIDs).length)
+  // console.log(teamNames, teamIDs, Object.keys(teamIDs).length)
 
   const NavBar = dynamic(() => import ('./components/navBar.js'))
   
   return <div>
     {/* <h1 className="text-3xl font-bold underline">Home page</h1> */}
-    <NavBar />
+    <NavBar teamNames={teamNames} teamIDs={teamIDs}/>
   </div>
 }

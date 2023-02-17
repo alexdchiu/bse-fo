@@ -71,10 +71,15 @@ const rosterTable = () => {
   // console.log('allTeams', allTeams)
 
   const currRosterIDs = []
+  const currRosterNames = []
 
   for (let i = 0; i < currRoster?.length; i++) {
     currRosterIDs.push(currRoster[i].id)
+    let name = currRoster[i].full_name
+    currRosterNames.push(name)
   }
+
+  // console.log(currRosterNames)
 
   var currPlayersData = playersData?.filter(
     function(el) {

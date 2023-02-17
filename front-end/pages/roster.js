@@ -19,6 +19,7 @@ const Roster = () => {
   });
   
   return <div>
+    
     <Suspense fallback={<div>Loading...</div>}>
       <PlayerCard />
     </Suspense>
