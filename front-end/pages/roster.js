@@ -8,6 +8,8 @@ const Roster = () => {
   // axios.get('/api/players').then((data) => {
   //   console.log(data)
   // })
+  let modal = document.getElementById('modal')
+
   const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
     suspense: true,
   });
@@ -21,11 +23,13 @@ const Roster = () => {
   return <div>
     
     <Suspense fallback={<div>Loading...</div>}>
-      <PlayerCard />
-    </Suspense>
-    <Suspense fallback={<div>Loading...</div>}>
       <RosterTable />
     </Suspense>
+    <div id="modal">
+      <Suspense fallback={<div>Loading...</div>}>
+        <PlayerCard />
+      </Suspense>
+    </div>
     <Suspense fallback={<div>Loading...</div>}>
       <PlayerCareerStatsTable />
     </Suspense>

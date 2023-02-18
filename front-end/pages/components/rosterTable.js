@@ -1,12 +1,17 @@
 import {teamStats} from '../api/seasonalStats'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import {playerCard} from './playerCard'
 
 const PlayerRow = (data) => {
+  const [showModal, setShowModal] = useState(false)
+  
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        <a href="#">{data.player.full_name}</a>
+        {/* <a href="#">{data.player.full_name}</a> */}
+        <button onClick={() => setShowModal(true)}>{data.player.full_name}</button>
+        {showModal ? <playerCard /> : null}
       </th>
       <td className="px-6 py-4">
         {data.player.total.games_played}
@@ -54,11 +59,8 @@ const PlayerRow = (data) => {
   )
 }
 
-
-
 const rosterTable = () => {
   const playersData = Object.values(teamStats.players)
-  
   const [currRoster, setCurrRoster] = useState()
   
 
@@ -145,7 +147,6 @@ const rosterTable = () => {
             </tr>
         </thead>
         <tbody>
-
             {currPlayersData && currPlayersData.map((player) => 
               <PlayerRow
                 key = {player.id}
