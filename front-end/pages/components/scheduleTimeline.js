@@ -1,32 +1,45 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-const TimelineEntry = (game, teamDict) => {
-  var date_str = game.game.scheduled
+const TimelineEntry = ({game, teamDict}) => {
+  var date_str = game.scheduled
   var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   var formatted = (new Date(date_str)).toLocaleDateString('en-US', options)
   var date_parts = formatted.substring(0, formatted.indexOf(",")).split(" ").reverse().join(" ");
   var formatted_date = date_parts + formatted.substr(formatted.indexOf(",") + 1);
-  var awayTeam = game.game.away.name
-  var homeTeam = game.game.home.name
+  var awayTeam = game.away.name
+  var homeTeam = game.home.name
   if (homeTeam === "Brooklyn Nets") { 
-    var opponent = game.game.away
+    var opponent = game.away
     var homeGame = true } else { 
-    var opponent = game.game.home
+    var opponent = game.home
     var homeGame = false
   }
 
-  var opponentID = opponent.id
   console.log(teamDict)
-  // var opponentWins = teamDict[opponentID].wins
-  // var opponentLosses = teamDict[opponentID].losses
-  // var opponentConference = teamDict[opponentID].conference
-  // var opponentDivision = teamDict[opponentID].division
-  // var opponentPointsAgainst = teamDict[opponentID].points_against
-  // var opponentPointsFor = teamDict[opponentID].points_for
+  var opponentID = opponent.id
+  var opponentWins = teamDict[opponentID].wins
+  var opponentLosses = teamDict[opponentID].losses
+  var opponentConference = toTitleCase(teamDict[opponentID].conference)
+  var opponentDivision = teamDict[opponentID].division
+  var opponentPointsAgainst = teamDict[opponentID].points_against
+  var opponentPointsFor = teamDict[opponentID].points_for
+  var opponentConfRank = teamDict[opponentID].calc_rank.conf_rank
+  var opponentDivRank = teamDict[opponentID].calc_rank.div_rank
+
+  function toTitleCase(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+  }
+
 
 
   // console.log(opponentWins, opponentLosses, opponentConference, opponentDivision, opponentPointsAgainst, opponentPointsFor)
+
 
   return (
     <li className="mb-10 ml-6">
@@ -34,8 +47,19 @@ const TimelineEntry = (game, teamDict) => {
           <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path></svg>
       </span>
       <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-black">{formatted_date} {homeGame ? null : '| (Away)'}</h3>
-      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{homeGame ? '@' : null} {opponent.name}</time>
-      <p className="text-base font-normal text-gray-500 dark:text-gray-400">All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.</p>
+      <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{homeGame ? '@' : null} {opponent.name} ({opponentWins}W - {opponentLosses}L)</time>
+      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        Current Ranks:
+      </p>
+      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        {opponentConference}: {opponentConfRank}
+      </p>
+      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        {opponentDivision} Division: {opponentDivRank}
+      </p>
+      <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+        Avg Points For / Against: {opponentPointsFor} / {opponentPointsAgainst}
+      </p>
     </li>
   )
 }
@@ -43,6 +67,7 @@ const TimelineEntry = (game, teamDict) => {
 const timeline = () => {
   const [schedule, setSchedule] = useState()
   const [standings, setStandings] = useState()
+  const [teamDict, setTeamDict] = useState()
 
   useEffect(() => {
     axios.get('api/schedule').then((response) => 
@@ -60,22 +85,29 @@ const timeline = () => {
     }
   )
 
-  // console.log(netsGames)
-  let teamDict = {}
+  
 
-  for (let i = 0; i < standings?.conferences.length; i++) {
-    var conference = standings.conferences[i]
-    var conferenceName = conference.name
-    for (let j = 0; j < conference.divisions.length; j++) {
-      var division = conference.divisions[j]
-      var divisionName = division.name
-      for (let k = 0; k < division.teams.length; k++) {
-        var team = division.teams[k]
-        var teamID = team.id
-        teamDict[teamID] = {...team, 'division': divisionName, 'conference': conferenceName}
+  useEffect(() => {
+    let temp = {}
+    console.log('standings', standings)
+
+    for (let i = 0; i < standings?.conferences.length; i++) {
+      var conference = standings.conferences[i]
+      var conferenceName = conference.name
+      for (let j = 0; j < conference.divisions.length; j++) {
+        var division = conference.divisions[j]
+        var divisionName = division.name
+        for (let k = 0; k < division.teams.length; k++) {
+          var team = division.teams[k]
+          var teamID = team.id
+          temp[teamID] = {...team, 'division': divisionName, 'conference': conferenceName}
+        }
       }
+      setTeamDict(temp)
     }
-  }
+  }, [standings])
+
+
 
   return (
     <div>

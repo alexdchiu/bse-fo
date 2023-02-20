@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/schedule": "pages/schedule.js"
+  "/schedule": "pages/schedule.js",
+  "/api/standings": "pages/api/standings.js",
+  "/api/schedule": "pages/api/schedule.js"
 }
