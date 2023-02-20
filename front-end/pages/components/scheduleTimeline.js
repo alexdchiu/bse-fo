@@ -1,8 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import AllTeams from '../components/allTeams'
 
-const TimelineEntry = (game) => {
+const TimelineEntry = (game, teamDict) => {
   var date_str = game.game.scheduled
   var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
   var formatted = (new Date(date_str)).toLocaleDateString('en-US', options)
@@ -16,7 +15,18 @@ const TimelineEntry = (game) => {
     var opponent = game.game.home
     var homeGame = false
   }
-  console.log(AllTeams)
+
+  var opponentID = opponent.id
+  console.log(teamDict)
+  // var opponentWins = teamDict[opponentID].wins
+  // var opponentLosses = teamDict[opponentID].losses
+  // var opponentConference = teamDict[opponentID].conference
+  // var opponentDivision = teamDict[opponentID].division
+  // var opponentPointsAgainst = teamDict[opponentID].points_against
+  // var opponentPointsFor = teamDict[opponentID].points_for
+
+
+  // console.log(opponentWins, opponentLosses, opponentConference, opponentDivision, opponentPointsAgainst, opponentPointsFor)
 
   return (
     <li className="mb-10 ml-6">
@@ -32,10 +42,13 @@ const TimelineEntry = (game) => {
 
 const timeline = () => {
   const [schedule, setSchedule] = useState()
+  const [standings, setStandings] = useState()
 
   useEffect(() => {
     axios.get('api/schedule').then((response) => 
       {setSchedule(response)})
+    axios.get('api/standings').then((response) => 
+      {setStandings(response.data.data)})
   }, [])
 
   let allGames = schedule?.data.data.games
@@ -47,7 +60,22 @@ const timeline = () => {
     }
   )
 
-  console.log(netsGames)
+  // console.log(netsGames)
+  let teamDict = {}
+
+  for (let i = 0; i < standings?.conferences.length; i++) {
+    var conference = standings.conferences[i]
+    var conferenceName = conference.name
+    for (let j = 0; j < conference.divisions.length; j++) {
+      var division = conference.divisions[j]
+      var divisionName = division.name
+      for (let k = 0; k < division.teams.length; k++) {
+        var team = division.teams[k]
+        var teamID = team.id
+        teamDict[teamID] = {...team, 'division': divisionName, 'conference': conferenceName}
+      }
+    }
+  }
 
   return (
     <div>
@@ -61,8 +89,8 @@ const timeline = () => {
             <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.</p>
             <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"><svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd"></path></svg> Download ZIP</a>
         </li>
-        {netsGames && netsGames.map((game) => 
-          <TimelineEntry key={game.id} game = {game} />
+        {(netsGames && teamDict) && netsGames.map((game) => 
+          <TimelineEntry key={game.id} game={game} teamDict={teamDict} />
         )}
         {/* <li className="ml-6">
             <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -left-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
