@@ -1,6 +1,10 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
+const timelineEntry = () => {
+  
+}
+
 const timeline = () => {
   const [schedule, setSchedule] = useState()
 
