@@ -4,5 +4,11 @@
     "files": [
       "static/chunks/pages_components_navBar_js.js"
     ]
+  },
+  "schedule.js -> ./components/scheduleTimeline.js": {
+    "id": "schedule.js -> ./components/scheduleTimeline.js",
+    "files": [
+      "static/chunks/pages_components_scheduleTimeline_js.js"
+    ]
   }
 }
