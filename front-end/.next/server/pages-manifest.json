@@ -2,7 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/roster": "pages/roster.js",
   "/schedule": "pages/schedule.js",
-  "/api/standings": "pages/api/standings.js",
-  "/api/schedule": "pages/api/schedule.js"
+  "/api/allTeams": "pages/api/allTeams.js",
+  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
+  "/api/playerProfile": "pages/api/playerProfile.js"
 }

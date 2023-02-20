@@ -7,7 +7,7 @@ const Schedule = () => {
   });
 
   return (
-    <div>
+    <div className="container pt-16 pl-6">
       <Timeline />
     </div>
   )
