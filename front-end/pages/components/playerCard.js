@@ -1,9 +1,10 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 
+
 // import {playerDetails, allPlayers} from '../api/playerProfile'
 
-const playerCard = () => {
+const PlayerCard = () => {
     const [playerData, setPlayerData] = useState()
     
     useEffect(() => {
@@ -86,4 +87,4 @@ const playerCard = () => {
   )
 }
 
-export default playerCard
+export default PlayerCard

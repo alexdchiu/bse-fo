@@ -1,17 +1,24 @@
 import {teamStats} from '../api/seasonalStats'
-import {useState, useEffect} from 'react'
+import dynamic from 'next/dynamic'
+import {useState, useEffect, Suspense} from 'react'
 import axios from 'axios'
-import {playerCard} from './playerCard'
+// import {PlayerCard} from './playerCard'
 
 const PlayerRow = (data) => {
-  const [showModal, setShowModal] = useState(false)
-  
+  console.log(data)
+
+  const handleSelect = () => {
+    data.setSelectedPlayer(data.player)
+    data.setShowModal(!data.showModal)
+  }
+
   return (
-    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+ 
+        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {/* <a href="#">{data.player.full_name}</a> */}
-        <button onClick={() => setShowModal(true)}>{data.player.full_name}</button>
-        {showModal ? <playerCard /> : null}
+        <button onClick={handleSelect}>{data.player.full_name}</button>
+
       </th>
       <td className="px-6 py-4">
         {data.player.total.games_played}
@@ -56,13 +63,20 @@ const PlayerRow = (data) => {
         {data.player.total.plus - data.player.total.minus}
       </td>
   </tr>
+
+    
   )
 }
 
 const rosterTable = () => {
   const playersData = Object.values(teamStats.players)
   const [currRoster, setCurrRoster] = useState()
-  
+  const [showModal, setShowModal] = useState(false)
+  const [selectedPlayer, setSelectedPlayer] = useState()
+
+  const PlayerCard = dynamic(() => import('./playerCard'), {
+    suspense: true,
+  });
 
   useEffect(() => {
     axios.get('api/getCurrentRoster').then((response) => {
@@ -71,6 +85,10 @@ const rosterTable = () => {
   }, [])
 
   // console.log('allTeams', allTeams)
+
+  const click = (() => {
+    setShowModal(true)
+  })
 
   const currRosterIDs = []
   const currRosterNames = []
@@ -92,7 +110,7 @@ const rosterTable = () => {
   )
 
   // console.log(currPlayersData, playersData, currRoster)
-
+  console.log('selected plater', selectedPlayer)
   return (
     
 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -151,10 +169,15 @@ const rosterTable = () => {
               <PlayerRow
                 key = {player.id}
                 player = {player} 
+                setShowModal={setShowModal}
+                showModal={showModal}
+                setSelectedPlayer={setSelectedPlayer}
                 />
               )}
         </tbody>
     </table>
+    {showModal &&
+      <PlayerCard />}
 </div>
 
   )

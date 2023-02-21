@@ -25,11 +25,11 @@ const Roster = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <RosterTable />
     </Suspense>
-    <div id="modal">
+    {/* <div id="modal">
       <Suspense fallback={<div>Loading...</div>}>
         <PlayerCard />
       </Suspense>
-    </div>
+    </div> */}
     <Suspense fallback={<div>Loading...</div>}>
       <PlayerCareerStatsTable />
     </Suspense>
