@@ -10,9 +10,9 @@ const Roster = () => {
   // })
   let modal = document.getElementById('modal')
 
-  const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
-    suspense: true,
-  });
+  // const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
+  //   suspense: true,
+  // });
   const RosterTable = dynamic(() => import('./components/rosterTable'), {
     suspense: true,
   });

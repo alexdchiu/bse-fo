@@ -12,6 +12,17 @@ const PlayerRow = (data) => {
     data.setShowModal(!data.showModal)
   }
 
+  var ppg = data.player.average.points.toFixed(1);
+  var rpg = data.player.average.rebounds.toFixed(1)
+  var apg = data.player.average.assists.toFixed(1)
+  var spg = data.player.average.steals.toFixed(1)
+  var bpg = data.player.average.blocks.toFixed(1)
+  var topg = data.player.average.turnovers.toFixed(1)
+  var fgPct = (data.player.total.field_goals_pct*100).toFixed(2)
+  var threePtPct = (data.player.total.three_points_pct*100).toFixed(2)
+  var ftPct = (data.player.total.free_throws_pct*100).toFixed(2)
+  var tsPct = (data.player.total.true_shooting_pct*100).toFixed(2)
+
   return (
  
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -30,37 +41,38 @@ const PlayerRow = (data) => {
         {data.player.average.minutes}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.points}
+        {ppg}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.rebounds}
+        {rpg}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.assists}
+        {apg}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.steals}
+        {spg}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.blocks}
+        {bpg}
       </td>
       <td className="px-6 py-4">
-        {data.player.average.turnovers}
+        {topg}
       </td>
       <td className="px-6 py-4">
-        {data.player.total.field_goals_pct*100}% 
+        {/* {data.player.total.field_goals_pct*100}%  */}
+        {fgPct}%
       </td>
       <td className="px-6 py-4">
-        {data.player.total.three_points_pct*100}%
+        {threePtPct}%
       </td>
       <td className="px-6 py-4">
-        {data.player.total.free_throws_pct*100}%
+        {ftPct}%
       </td>
       <td className="px-6 py-4">
-        {data.player.total.true_shooting_pct*100}%
+        {tsPct}%
       </td>
       <td className="px-6 py-4">
-        {data.player.total.plus - data.player.total.minus}
+        {data.player.total.plus - data.player.total.minus > 0 && '+'}{data.player.total.plus - data.player.total.minus}
       </td>
   </tr>
 
@@ -113,7 +125,7 @@ const rosterTable = () => {
   // console.log('selected player', selectedPlayer)
   return (
     
-<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-14">
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

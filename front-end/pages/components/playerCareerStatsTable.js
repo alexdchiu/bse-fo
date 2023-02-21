@@ -76,7 +76,7 @@ const playerCareerTable = () => {
   
   return (
     
-<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-14">
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
               {playerName}
