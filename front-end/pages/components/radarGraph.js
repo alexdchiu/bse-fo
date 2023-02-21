@@ -1,7 +1,7 @@
 import * as d3 from 'd3'
 import {useRef, useEffect} from 'react'
 
-const radarGraph = () => {
+const radarGraph = ({players, seasonStats}) => {
   const svgRef = useRef()
   let data = [];
   let features = ["eFG%", "TS%", "PPG", "APG", "RPG", "SPG", "BPG"];
@@ -12,11 +12,35 @@ const radarGraph = () => {
   let player2 = { 'eFG%': 42, 'TS%': 48, 'PPG': 8.1, 'APG': 6.2, 'RPG': 8.1, 'SPG': .3, 'BPG': 1.2 }
   let player3 = { 'eFG%': 61, 'TS%': 62.5, 'PPG': 22.1, 'APG': 5.2, 'RPG': 9.2, 'SPG': .6, 'BPG': .8 }
 
-  let players = [player1, player2, player3]
+  // console.log('ppp', players, seasonStats)
 
-  for (var i = 0; i < players.length; i++) {
+  let playerss = [player1, player2, player3]
+
+  let playerKeys = Object.keys(players)
+  for (var i = 0; i < playerKeys.length; i++) {
     let temp = {}
-    features.forEach(f => temp[f] = players[i][f] / nbaSeasonLeaders[f] * 10)
+    let currKey = playerKeys[i]
+    let currPlayerID = players[currKey].id
+    console.log(seasonStats.players)
+    let currPlayerStats = seasonStats.players.filter(function (el) {
+      return el.id === currPlayerID
+    }) 
+    var stats = currPlayerStats[0]
+    var ppg = stats.average.points
+    var apg = stats.average.assists
+    var rpg = stats.average.rebounds
+    var spg = stats.average.steals
+    var bpg = stats.average.blocks
+    var tsPct = stats.total.true_shooting_pct
+    // var 
+    // features.forEach(f => temp[f] = players[playerKeys].)
+    // console.log('temp', temp)
+  }
+  
+
+  for (var i = 0; i < playerss.length; i++) {
+    let temp = {}
+    features.forEach(f => temp[f] = playerss[i][f] / nbaSeasonLeaders[f] * 10)
     data.push(temp)
   }
   // console.log(data);

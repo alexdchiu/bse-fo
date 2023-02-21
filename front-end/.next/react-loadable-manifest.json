@@ -5,6 +5,10 @@
       "static/chunks/pages_components_navBar_js.js"
     ]
   },
+  "components/playerSelect.js -> ./radarGraph": {
+    "id": "components/playerSelect.js -> ./radarGraph",
+    "files": []
+  },
   "components/rosterTable.js -> ./playerCard": {
     "id": "components/rosterTable.js -> ./playerCard",
     "files": [
