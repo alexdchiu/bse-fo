@@ -4,6 +4,19 @@ import {useState, useEffect} from 'react'
 const SeasonRow = (data) => {
   let seasonData = data?.season
   // console.log(seasonData)
+
+  var ppg = seasonData.teams[0].average.points.toFixed(1);
+  var rpg = seasonData.teams[0].average.rebounds.toFixed(1)
+  var apg = seasonData.teams[0].average.assists.toFixed(1)
+  var spg = seasonData.teams[0].average.steals.toFixed(1)
+  var bpg = seasonData.teams[0].average.blocks.toFixed(1)
+  var topg = seasonData.teams[0].average.turnovers.toFixed(1)
+  var fgPct = (seasonData.teams[0].total.field_goals_pct*100).toFixed(2)
+  var threePtPct = (seasonData.teams[0].total.three_points_pct*100).toFixed(2)
+  var ftPct = (seasonData.teams[0].total.free_throws_pct*100).toFixed(2)
+  var tsPct = (seasonData.teams[0].total.true_shooting_pct*100).toFixed(2)
+
+
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -22,37 +35,37 @@ const SeasonRow = (data) => {
         {seasonData.teams[0].average.minutes}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.points}
+        {ppg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.rebounds}
+        {rpg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.assists}
+        {apg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.steals}
+        {spg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.blocks}
+        {bpg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].average.turnovers}
+        {topg}
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].total.field_goals_pct*100}%
+        {fgPct}%
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].total.three_points_pct*100}%
+        {threePtPct}%
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].total.free_throws_pct*100}%
+        {ftPct}%
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].total.true_shooting_pct*100}%
+        {tsPct}%
       </td>
       <td className="px-6 py-4">
-        {seasonData.teams[0].total.plus - seasonData.teams[0].total.minus}
+      {seasonData.teams[0].total.plus - seasonData.teams[0].total.minus > 0 && '+'}{seasonData.teams[0].total.plus - seasonData.teams[0].total.minus}
       </td>
   </tr>
   )
