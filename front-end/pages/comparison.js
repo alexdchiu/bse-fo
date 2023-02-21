@@ -1,11 +1,13 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import RadarGraph from './components/radarGraph'
+import PlayerSelect from './components/playerSelect'
 
-const Comparison = () => {
+const Comparison = ({currRoster}) => {
   return (
-    <div>
-      <RadarGraph />
+    <div className='pt-14'>
+      <RadarGraph currRoster={currRoster}  />
+      <PlayerSelect currRoster={currRoster} />
     </div>
   )
 }

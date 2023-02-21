@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 
 
 
-const Roster = () => {
+const Roster = ({currRoster, seasonStats}) => {
   // axios.get('/api/players').then((data) => {
   //   console.log(data)
   // })
@@ -23,7 +23,7 @@ const Roster = () => {
   return <div>
     
     <Suspense fallback={<div>Loading...</div>}>
-      <RosterTable />
+      <RosterTable currRoster={currRoster} seasonStats={seasonStats} />
     </Suspense>
     {/* <div id="modal">
       <Suspense fallback={<div>Loading...</div>}>
