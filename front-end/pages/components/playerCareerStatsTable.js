@@ -70,12 +70,18 @@ const playerCareerTable = () => {
 
   let playerCareerStats = playerData?.data.playerDetails.seasons
 
-  // console.log(playerCareerStats)
+  console.log(playerData?.data.playerDetails)
+  let playerDetails = playerData?.data.playerDetails
+  let playerName = playerDetails?.full_name
   
   return (
     
 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <caption class="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+              {playerName}
+            <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite products designed to help you work and play, stay organized, get answers, keep in touch, grow your business, and more.</p>
+        </caption>
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" className="px-6 py-3">

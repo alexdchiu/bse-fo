@@ -5,7 +5,7 @@ import axios from 'axios'
 // import {PlayerCard} from './playerCard'
 
 const PlayerRow = (data) => {
-  console.log(data)
+  // console.log(data)
 
   const handleSelect = () => {
     data.setSelectedPlayer(data.player)
@@ -110,7 +110,7 @@ const rosterTable = () => {
   )
 
   // console.log(currPlayersData, playersData, currRoster)
-  console.log('selected plater', selectedPlayer)
+  // console.log('selected player', selectedPlayer)
   return (
     
 <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -177,8 +177,13 @@ const rosterTable = () => {
         </tbody>
     </table>
     {showModal &&
-      <PlayerCard />}
-</div>
+      <PlayerCard  
+      setShowModal={setShowModal}
+      showModal={showModal}
+      selectedPlayer={selectedPlayer}
+      setSelectedPlayer={setSelectedPlayer} />}
+      {/* <PlayerModal />} */}
+  </div>
 
   )
 }
