@@ -16,6 +16,7 @@ const SeasonRow = (data) => {
   var ftPct = (seasonData.teams[0].total.free_throws_pct*100).toFixed(2)
   var tsPct = (seasonData.teams[0].total.true_shooting_pct*100).toFixed(2)
 
+
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -166,7 +167,9 @@ const PlayerCareerTable = (props) => {
         </table>
       </div>
       <div>
-        <button onClick={handleReturnToRosterTable}>Return to Roster Stats Table</button>
+        {/* <button onClick={handleReturnToRosterTable}>Return to Roster Stats Table</button> */}
+        <button id="multiLevelDropdownButton" data-dropdown-toggle="dropdown" className="text-white bg-gray-600 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-600" type="button" onClick={handleReturnToRosterTable}> Return to Roster Stats Table 
+        </button>
       </div>
     </>
     

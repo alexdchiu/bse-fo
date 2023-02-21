@@ -105,7 +105,7 @@ const rosterTable = ({currRoster, seasonStats}) => {
   }
 
 
-  var currPlayersData = Object.values(seasonStats.players).filter(
+  var currPlayersData = seasonStats && Object.values(seasonStats.players).filter(
     function(el) {
       return currRoster?.find(currPlayer => {
         return currPlayer.id === el.id
@@ -123,7 +123,7 @@ const rosterTable = ({currRoster, seasonStats}) => {
         {showRosterTable && 
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                  Current Roster
+                  Brooklyn Nets Current Roster
                 <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">2022-23 Season Stats for Current Team</p>
                 <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">(Click on player name to see details)</p>
             </caption>

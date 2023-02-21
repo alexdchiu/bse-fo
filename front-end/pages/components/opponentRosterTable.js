@@ -1,14 +1,14 @@
 
 
-const OppRosterTable = ({}) => {
+const OppRosterTable = ({city, teamName}) => {
 
   return (
     
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-14">
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                  Current Roster
-                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">2022-23 Season Stats for Current Team</p>
+                  {city} {teamName} Current Roster
+                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">(Currently No Data Due to API Limitations)</p>
             </caption>
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

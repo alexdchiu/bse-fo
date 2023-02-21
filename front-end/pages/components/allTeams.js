@@ -1,8 +1,10 @@
 const TeamRow = ({team, teamID}) => {
-  console.log(teamID)
+  let teamNoSpace = team.replace(/ /g,"_")
+
   return (
-    <li a href="/opponent" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" value={teamID}>
-    {team}
+    <li>
+      <a href={`/${teamNoSpace}`} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem" value={teamID} data-team={team}>
+      {team} </a>
   </li>
   )
 }

@@ -33,7 +33,7 @@ const PlayerCard = (data) => {
 
     // console.log(playerDetails)
 
-    console.log(data)
+    // console.log(data)
 
 
     var newArray = allPlayers?.filter(function (el)
@@ -46,7 +46,7 @@ const PlayerCard = (data) => {
 
     var currID = newArray&&newArray[0].personId
 
-    console.log(currID)
+    // console.log(currID)
 
     const headshotURL = currID && `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${currID}.png`
 

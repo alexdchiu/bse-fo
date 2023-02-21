@@ -8,13 +8,6 @@ const radarGraph = ({players, seasonStats}) => {
   //generate the data
   let nbaSeasonLeaders = { "eFG%": 72.2, "TS%": 71.0, "PPG": 33.3, "APG": 10.8, "RPG": 12.3, "SPG": 2.1, "BPG": 3.3 }
 
-  let player1 = { 'eFG%': 52, 'TS%': 60, 'PPG': 15.1, 'APG': 8.3, 'RPG': 6, 'SPG': 1.1, 'BPG': .5 }
-  let player2 = { 'eFG%': 42, 'TS%': 48, 'PPG': 8.1, 'APG': 6.2, 'RPG': 8.1, 'SPG': .3, 'BPG': 1.2 }
-  let player3 = { 'eFG%': 61, 'TS%': 62.5, 'PPG': 22.1, 'APG': 5.2, 'RPG': 9.2, 'SPG': .6, 'BPG': .8 }
-
-  // console.log('ppp', players, seasonStats)
-
-  let playerss = [player1, player2, player3]
 
   let playerKeys = Object.keys(players)
   for (var i = 0; i < playerKeys.length; i++) {
@@ -37,13 +30,6 @@ const radarGraph = ({players, seasonStats}) => {
     console.log(currKey, temp)
   }
   
-
-  // for (var i = 0; i < playerss.length; i++) {
-  //   let temp = {}
-  //   features.forEach(f => temp[f] = playerss[i][f] / nbaSeasonLeaders[f] * 10)
-  //   data.push(temp)
-  // }
-  // console.log(data);
 
   // create 600x600 SVG to draw chart on
   let width = 600;

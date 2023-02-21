@@ -9,6 +9,7 @@ const TimelineEntry = ({game, teamDict}) => {
   var formatted_date = date_parts + formatted.substr(formatted.indexOf(",") + 1);
   var awayTeam = game.away.name
   var homeTeam = game.home.name
+  
   if (homeTeam === "Brooklyn Nets") { 
     var opponent = game.away
     var homeGame = true } else { 
@@ -36,6 +37,9 @@ const TimelineEntry = ({game, teamDict}) => {
     );
   }
 
+  var opponentURL = opponent.name.replace(/ /g,"_")
+
+  console.log(opponentURL)
 
 
   // console.log(opponentWins, opponentLosses, opponentConference, opponentDivision, opponentPointsAgainst, opponentPointsFor)
@@ -47,7 +51,7 @@ const TimelineEntry = ({game, teamDict}) => {
           <svg aria-hidden="true" className="w-3 h-3 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path></svg>
       </span>
       <h3 className="mb-1 text-lg font-semibold text-gray-900 dark:text-black">{formatted_date} {homeGame ? null : '| (Away)'}</h3>
-      <time className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500">{homeGame ? '@' : null} {opponent.name} ({opponentWins}W - {opponentLosses}L)</time>
+      <time className="block mb-2 font-normal leading-none text-gray-400 dark:text-gray-500"><a href={`/${opponentURL}`}>{homeGame ? '@' : null} {opponent.name}</a> | ({opponentWins}W - {opponentLosses}L)</time>
       <p className="text-base text-sm font-normal text-gray-500 dark:text-gray-400">
         Current Ranking
       </p>
