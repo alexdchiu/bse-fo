@@ -5,18 +5,14 @@
       "static/chunks/pages_components_navBar_js.js"
     ]
   },
-  "components/playerSelect.js -> ./radarGraph": {
-    "id": "components/playerSelect.js -> ./radarGraph",
-    "files": []
-  },
   "components/rosterTable.js -> ./playerCard": {
     "id": "components/rosterTable.js -> ./playerCard",
     "files": [
       "static/chunks/pages_components_playerCard_js.js"
     ]
   },
-  "roster.js -> ./components/playerCareerStatsTable": {
-    "id": "roster.js -> ./components/playerCareerStatsTable",
+  "components/rosterTable.js -> ./playerCareerStatsTable": {
+    "id": "components/rosterTable.js -> ./playerCareerStatsTable",
     "files": [
       "static/chunks/pages_components_playerCareerStatsTable_js.js"
     ]

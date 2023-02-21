@@ -26,23 +26,23 @@ const radarGraph = ({players, seasonStats}) => {
       return el.id === currPlayerID
     }) 
     var stats = currPlayerStats[0]
-    var ppg = stats.average.points
-    var apg = stats.average.assists
-    var rpg = stats.average.rebounds
-    var spg = stats.average.steals
-    var bpg = stats.average.blocks
-    var tsPct = stats.total.true_shooting_pct
-    // var 
-    // features.forEach(f => temp[f] = players[playerKeys].)
-    // console.log('temp', temp)
+    temp['PPG'] = stats.average.points / nbaSeasonLeaders['PPG'] * 10
+    temp['APG'] = stats.average.assists / nbaSeasonLeaders['APG'] * 10
+    temp['RPG'] = stats.average.rebounds / nbaSeasonLeaders['RPG'] * 10
+    temp['SPG'] = stats.average.steals / nbaSeasonLeaders['SPG'] * 10
+    temp['BPG'] = stats.average.blocks / nbaSeasonLeaders['BPG'] * 10
+    temp['TS%'] = stats.total.true_shooting_pct*100 / nbaSeasonLeaders['TS%'] * 10
+    temp['eFG%'] = stats.total.effective_fg_pct*100 / nbaSeasonLeaders['eFG%'] * 10
+    data.push(temp)
+    console.log(currKey, temp)
   }
   
 
-  for (var i = 0; i < playerss.length; i++) {
-    let temp = {}
-    features.forEach(f => temp[f] = playerss[i][f] / nbaSeasonLeaders[f] * 10)
-    data.push(temp)
-  }
+  // for (var i = 0; i < playerss.length; i++) {
+  //   let temp = {}
+  //   features.forEach(f => temp[f] = playerss[i][f] / nbaSeasonLeaders[f] * 10)
+  //   data.push(temp)
+  // }
   // console.log(data);
 
   // create 600x600 SVG to draw chart on
@@ -94,7 +94,7 @@ const radarGraph = ({players, seasonStats}) => {
   let line = d3.line()
     .x(d => d.x)
     .y(d => d.y);
-  let colors = ["darkorange", "gray", "navy"];
+  let colors = ["navy", "darkgray", "darkorange",];
 
   function getPathCoordinates(data_point) {
     let coordinates = [];
@@ -165,8 +165,8 @@ const radarGraph = ({players, seasonStats}) => {
 
   return (
     <div>
-      <h1>Hi I'm the radar chart</h1>
       <svg ref={svgRef} className="radarChart container min-h-[600px]"></svg>
+      <h1>Player current season statistics relative to current NBA season leaders.</h1>
     </div>
   )
 }

@@ -18,6 +18,13 @@ const PlayerCard = (data) => {
         data.setShowModal(!data.showModal)
       }
 
+    const handleSeePlayerCareerStats = () => {
+        data.setShowRosterTable(!data.showRosterTable)
+        data.setSelectedPlayer(data.player)
+        data.setShowModal(!data.showModal)
+        data.setShowPlayerTable(!data.showPlayerTable)
+      }
+
     const playerDetails = playerData?.data.playerDetails
     const allPlayers = playerData?.data.allPlayers
     const currFirstName = playerDetails?.first_name
@@ -25,6 +32,8 @@ const PlayerCard = (data) => {
     const currFullName = playerDetails?.full_name
 
     // console.log(playerDetails)
+
+    console.log(data)
 
 
     var newArray = allPlayers?.filter(function (el)
@@ -37,7 +46,9 @@ const PlayerCard = (data) => {
 
     var currID = newArray&&newArray[0].personId
 
-    const headshotURL = `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${currID}.png`
+    console.log(currID)
+
+    const headshotURL = currID && `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${currID}.png`
 
     let heightFt = Math.floor(playerDetails?.height/12)
     let heightInches = playerDetails?.height - heightFt*12
@@ -69,7 +80,7 @@ const PlayerCard = (data) => {
                     Draft: {playerDetails?.draft.year} - {playerDetails?.draft.round} / {playerDetails?.draft.pick} ({playerDetails?.college})
                 </span>
                 <div className="flex mt-4 space-x-3 md:mt-6">
-                    <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">See Career Stats</a>
+                    <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={handleSeePlayerCareerStats}>See Career Stats</button>
                     {/* <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Message</a> */}
                 </div>
             </div>

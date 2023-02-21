@@ -8,7 +8,7 @@ const Roster = ({currRoster, seasonStats}) => {
   // axios.get('/api/players').then((data) => {
   //   console.log(data)
   // })
-  let modal = document.getElementById('modal')
+  // let modal = document.getElementById('modal')
 
   // const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
   //   suspense: true,
@@ -16,9 +16,9 @@ const Roster = ({currRoster, seasonStats}) => {
   const RosterTable = dynamic(() => import('./components/rosterTable'), {
     suspense: true,
   });
-  const PlayerCareerStatsTable = dynamic(() => import('./components/playerCareerStatsTable'), {
-    suspense: true,
-  });
+  // const PlayerCareerStatsTable = dynamic(() => import('./components/playerCareerStatsTable'), {
+  //   suspense: true,
+  // });
   
   return <div>
     
@@ -30,9 +30,9 @@ const Roster = ({currRoster, seasonStats}) => {
         <PlayerCard />
       </Suspense>
     </div> */}
-    <Suspense fallback={<div>Loading...</div>}>
+    {/* <Suspense fallback={<div>Loading...</div>}>
       <PlayerCareerStatsTable />
-    </Suspense>
+    </Suspense> */}
   </div>
   
 }
