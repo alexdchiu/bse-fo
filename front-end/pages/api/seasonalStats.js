@@ -15,6 +15,7 @@ const teamStats = async (req, res) => {
 
   const url = `http://api.sportradar.us/nba/trial/v7/${language_code}/seasons/${season_year}/${season_type}/teams/${team_id}/statistics.json?api_key=${key}`
 
+  console.log('pppp', url)
 
   const data = await axios.get(url).then((response) => {
     return response.data

@@ -10,6 +10,8 @@ function MyApp({ Component, pageProps }) {
     const [player, setPlayer] = useState()
 
 
+  console.log('p123',process.env.NEXT_PUBLIC_SPORTSRADAR_API_KEY)
+
     useEffect(() => {
       const delay = ms => new Promise(res => setTimeout(res, ms));
 
