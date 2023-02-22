@@ -8,6 +8,5 @@ module.exports = {
   // output: 'standalone',
   experimental: {
     outputStandalone: true,
-    outputFileTracingRoot: path.join(__dirname, '../../')
   },
 }
