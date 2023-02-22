@@ -1,8 +1,10 @@
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
-  /* config options here */
+module.exports = async (phase, { defaultConfig }) => {
+  /**
+   * @type {import('next').NextConfig}
+   */
+  const nextConfig = {
+    /* config options here */
+    trailingSlash: true,
+  }
+  return nextConfig
 }
-
-module.exports = nextConfig
