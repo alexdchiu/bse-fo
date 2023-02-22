@@ -1,5 +1,9 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
+  "/roster": "pages/roster.js",
+  "/api/standings": "pages/api/standings.js"
 }

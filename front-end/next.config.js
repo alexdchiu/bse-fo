@@ -1,10 +1,15 @@
-module.exports = async (phase, { defaultConfig }) => {
-  /**
-   * @type {import('next').NextConfig}
-   */
-  const nextConfig = {
-    /* config options here */
-    trailingSlash: true,
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  webpackDevMiddleware: (config) => {
+    config.watchOptions = {
+      poll: 1000,
+      aggregateTimeout: 300,
+    }
+    return config
   }
-  return nextConfig
 }
