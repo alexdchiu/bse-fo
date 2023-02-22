@@ -3,9 +3,12 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/roster": "pages/roster.js",
-  "/schedule": "pages/schedule.js",
-  "/[slug]": "pages/[slug].js",
   "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
+  "/api/seasonalStats": "pages/api/seasonalStats.js",
   "/api/standings": "pages/api/standings.js",
-  "/api/seasonalStats": "pages/api/seasonalStats.js"
+  "/api/players": "pages/api/players.js",
+  "/": "pages/index.js",
+  "/[slug]": "pages/[slug].js",
+  "/api/playerProfile": "pages/api/playerProfile.js",
+  "/comparison": "pages/comparison.js"
 }

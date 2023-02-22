@@ -15,10 +15,10 @@ function MyApp({ Component, pageProps }) {
 
       async function getData () {
         const [firstResponse, secondResponse, thirdResponse] = await Promise.all([axios.get('/api/getCurrentRoster'),
-        await delay(1000),
+        await delay(2000),
         axios.get('/api/seasonalStats')])
 
-        setCurrRoster(firstResponse?.data.currTeam.players)
+        setCurrRoster(firstResponse?.data.currTeam?.players)
         setSeasonStats(thirdResponse?.data)
 
         return {firstResponse: firstResponse, thirdResponse: thirdResponse}
