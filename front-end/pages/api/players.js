@@ -2,9 +2,11 @@ import axios from 'axios'
 
 const getPlayerProfile = async (req, res) => {
   // boston celtics
+
+  // console.log('222', req.query.id)
   const team_id = '583eccfa-fb46-11e1-82cb-f4ce4684ea4c'
   // jason tatum
-  const player_id = '98136da3-452f-49dc-a794-1ee9c76443f2' 
+  const player_id = req.query.id 
   const language_code = 'en'
   const access_level = 'trial'
   const version = 'v7'
@@ -17,7 +19,7 @@ const getPlayerProfile = async (req, res) => {
     return response.data
   })
 
-  console.log('thisrklsjkldf', data)
+  console.log('hihi', data)
   res.json(data)
 
 }

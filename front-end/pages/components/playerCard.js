@@ -25,7 +25,9 @@ const PlayerCard = (data) => {
         data.setShowPlayerTable(!data.showPlayerTable)
       }
 
-    const playerDetails = playerData?.data.playerDetails
+    // console.log('1234', data.playerProfile.data)
+
+    const playerDetails = data.playerProfile.data
     const allPlayers = playerData?.data.allPlayers
     const currFirstName = playerDetails?.first_name
     const currLastName = playerDetails?.last_name

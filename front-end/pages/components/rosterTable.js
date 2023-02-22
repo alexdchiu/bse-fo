@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import {useState, useEffect, Suspense} from 'react'
+import axios from 'axios'
 
 const PlayerRow = (data) => {
 
@@ -24,7 +25,7 @@ const PlayerRow = (data) => {
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {/* <a href="#">{data.player.full_name}</a> */}
-        <button onClick={handleSelect}>{data.player.full_name}</button>
+        <button onClick={handleSelect} value={data.player.id}>{data.player.full_name}</button>
 
       </th>
       <td className="px-6 py-4">
@@ -81,6 +82,7 @@ const rosterTable = ({currRoster, seasonStats}) => {
   const [showModal, setShowModal] = useState(false)
   const [selectedPlayer, setSelectedPlayer] = useState()
   const [showPlayerTable, setShowPlayerTable] = useState(false)
+  const [playerProfile, setPlayerProfile] = useState()
 
   const PlayerCard = dynamic(() => import('./playerCard'), {
     suspense: true,
@@ -113,10 +115,19 @@ const rosterTable = ({currRoster, seasonStats}) => {
     }
   )
 
+  useEffect(() => {
+    let playerID = selectedPlayer?.id
+    if (selectedPlayer) {
+      axios.get('api/players', {
+      params: { id: playerID },
+      }).then((response) => {setPlayerProfile(response)})
+    }
+  }, [selectedPlayer])
+
   // console.log('aaa', seasonStats)
 
   // console.log(currPlayersData, playersData, currRoster)
-  // console.log('selected player', selectedPlayer)
+  console.log('selected player', selectedPlayer)
   return (
     
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-14">
@@ -191,6 +202,7 @@ const rosterTable = ({currRoster, seasonStats}) => {
 
         {showModal &&
           <PlayerCard  
+          playerProfile={playerProfile}
           showRosterTable={showRosterTable}
           setShowRosterTable={setShowRosterTable}
           setShowModal={setShowModal}

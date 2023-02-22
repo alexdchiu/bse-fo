@@ -2,11 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
-  "/roster": "pages/roster.js",
-  "/api/seasonalStats": "pages/api/seasonalStats.js",
-  "/api/allTeams": "pages/api/allTeams.js",
   "/[slug]": "pages/[slug].js",
-  "/api/playerProfile": "pages/api/playerProfile.js",
-  "/": "pages/index.js"
+  "/roster": "pages/roster.js",
+  "/api/players": "pages/api/players.js",
+  "/api/playerProfile": "pages/api/playerProfile.js"
 }
