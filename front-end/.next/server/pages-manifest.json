@@ -4,11 +4,8 @@
   "/_document": "pages/_document.js",
   "/roster": "pages/roster.js",
   "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
-  "/api/seasonalStats": "pages/api/seasonalStats.js",
   "/api/standings": "pages/api/standings.js",
-  "/api/players": "pages/api/players.js",
-  "/": "pages/index.js",
-  "/[slug]": "pages/[slug].js",
-  "/api/playerProfile": "pages/api/playerProfile.js",
-  "/comparison": "pages/comparison.js"
+  "/api/seasonalStats": "pages/api/seasonalStats.js",
+  "/schedule": "pages/schedule.js",
+  "/api/schedule": "pages/api/schedule.js"
 }

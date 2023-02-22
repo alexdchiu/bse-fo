@@ -7,7 +7,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["pages_components_playerCareerStatsTable_js"],{
+self["webpackHotUpdate_N_E"]("pages_components_playerCareerStatsTable_js",{
 
 /***/ "./pages/components/playerCareerStatsTable.js":
 /*!****************************************************!*\
@@ -19,4 +19,4 @@ eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* har
 
 /***/ })
 
-}]);
+});
