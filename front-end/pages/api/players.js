@@ -7,7 +7,7 @@ const getPlayerProfile = async (req, res) => {
   const access_level = 'trial'
   const version = 'v7'
   const format = 'json'
-  const key = `${process.env.SPORTSRADAR_API_KEY}`
+  const key = `${process.env.NEXT_PUBLIC_SPORTSRADAR_API_KEY}`
 
   const url = `https://api.sportradar.com/nba/${access_level}/${version}/${language_code}/players/${player_id}/profile.${format}?api_key=${key}`
 

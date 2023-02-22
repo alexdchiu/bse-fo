@@ -7,7 +7,7 @@ const teamStats = async (req, res) => {
   const season_year = '2022'
   const season_type = 'REG'
   const team_id = '583ec9d6-fb46-11e1-82cb-f4ce4684ea4c'
-  const key = `${process.env.SPORTSRADAR_API_KEY}`
+  const key = `${process.env.NEXT_PUBLIC_SPORTSRADAR_API_KEY}`
 
   const delay = ms => new Promise(res => setTimeout(res, ms));
 
