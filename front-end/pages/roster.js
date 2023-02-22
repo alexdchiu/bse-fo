@@ -13,6 +13,7 @@ const Roster = ({currRoster, seasonStats}) => {
   // const PlayerCard = dynamic(() => import('./components/playerCard.js'), {
   //   suspense: true,
   // });
+  console.log('a123', currRoster, seasonStats)
   const RosterTable = dynamic(() => import('./components/rosterTable'), {
     suspense: true,
   });

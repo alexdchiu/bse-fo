@@ -7,21 +7,46 @@ import {useState, useEffect} from 'react'
 function MyApp({ Component, pageProps }) {
     const [currRoster, setCurrRoster] = useState()
     const [seasonStats, setSeasonStats] = useState()
+    const [player, setPlayer] = useState()
+
 
     useEffect(() => {
-    axios.get('api/getCurrentRoster').then((response) => {
-      setCurrRoster(response.data.currTeam.players)
-    })
-    axios.get('api/seasonalStats').then((response) => {
-      setSeasonStats(response.data.data)
-    })
+      const delay = ms => new Promise(res => setTimeout(res, ms));
+
+      async function getData () {
+        const [firstResponse, secondResponse, thirdResponse] = await Promise.all([axios.get('/api/getCurrentRoster'),
+        await delay(1000),
+        axios.get('/api/seasonalStats')])
+
+        setCurrRoster(firstResponse?.data.currTeam.players)
+        setSeasonStats(thirdResponse?.data)
+
+        console.log('tchang', firstResponse.data, thirdResponse.data)
+
+        return {firstResponse: firstResponse, thirdResponse: thirdResponse}
+      }
+
+      let responses = getData()
+
+
+
+      // axios.get('/api/getCurrentRoster').then((response) => {
+      //   setCurrRoster(response?.data.currTeam.players)
+      // })
     }, [])
 
-    
+    // useEffect (() => {
+    //   axios.get('/api/seasonalStats').then((response) => {
+    //     setSeasonStats(response?.data)
+    //   })
+    // }, [currRoster])
+
 
     return (
         <Layout>
-            <Component {...pageProps} currRoster={currRoster} seasonStats={seasonStats} />
+            {(currRoster && seasonStats) && 
+              <Component {...pageProps} currRoster={currRoster} seasonStats={seasonStats} />
+            }
         </Layout>
     )
 }
