@@ -80,28 +80,34 @@ const PlayerCareerTable = (props) => {
         axios.get('api/playerProfile').then((response) => {setPlayerData(response)})
     }, []
     )
+
+  console.log(props.playerProfile.data)
   
   const handleReturnToRosterTable = () => {
     props.setShowRosterTable(!props.showRosterTable)
-    props.setSelectedPlayer(!props.player)
+    // props.setSelectedPlayer(!props.player)
     props.setShowPlayerTable(!props.showPlayerTable)
   }
 
-  // console.log(props)
+  // console.log(props.playerProfile.data)
 
-  let playerCareerStats = playerData?.data.playerDetails.seasons
+  let playerCareerStats = props.playerProfile.data.seasons
 
   // console.log(playerData?.data.playerDetails)
-  let playerDetails = playerData?.data.playerDetails
-  let playerName = playerDetails?.full_name
+  let playerDetails = props.playerProfile.data
+
+  let heightFt = Math.floor(playerDetails?.height/12)
+  let heightInches = playerDetails?.height - heightFt*12
   
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <caption className="p-5 text-lg font-semibold text-left text-gray-900 bg-white dark:text-white dark:bg-gray-800">
-                  {playerName}
-                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Browse a list of Flowbite products designed to help you work and play, stay organized, get answers, keep in touch, grow your business, and more.</p>
+                  {playerDetails.full_name} | #{playerDetails.jersey_number} | {playerDetails.primary_position}
+                  <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">{heightFt}'{heightInches}" | {playerDetails.weight}lbs </p>
+                  <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">{playerDetails.birth_place} | {playerDetails.birthdate} </p>
+                <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">{playerDetails.experience} seasons | College: {playerDetails.college} | Draft Year: {playerDetails.draft.year} | Rookie Year: {playerDetails.rookie_year}</p>
             </caption>
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

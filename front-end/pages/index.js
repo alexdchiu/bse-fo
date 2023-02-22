@@ -8,8 +8,13 @@ import {useState, useEffect} from 'react'
 
 
 export default function Index () {
+  const HomePage = dynamic(() => import('./components/homePage'), {
+    suspense: true,
+  });
+  
   return (
-  <div>
+  <div className='pt-16'>
+    <HomePage />
   </div>
   ) 
 }

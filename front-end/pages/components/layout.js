@@ -12,17 +12,17 @@ export default function Layout ({children}) {
   let teamIDs = {}
 
   useEffect(() => {
-    axios.get('api/allTeams').then((response) => {
+    axios.get('api/standings').then((response) => {
       setAllTeams(response.data)
     })
   }, [])
 
 
-  for (let i = 0; i < allTeams?.standings.conferences.length; i++) {
-    conferences.push(allTeams.standings.conferences[i].alias)
-    for (let j = 0; j < allTeams.standings.conferences[i].divisions.length; j++) {
-      divisions[allTeams.standings.conferences[i].divisions[j].name] = allTeams.standings.conferences[i].divisions[j].teams
-      divisionNames.push(allTeams.standings.conferences[i].divisions[j].name)
+  for (let i = 0; i < allTeams?.data.conferences.length; i++) {
+    conferences.push(allTeams.data.conferences[i].alias)
+    for (let j = 0; j < allTeams.data.conferences[i].divisions.length; j++) {
+      divisions[allTeams.data.conferences[i].divisions[j].name] = allTeams.data.conferences[i].divisions[j].teams
+      divisionNames.push(allTeams.data.conferences[i].divisions[j].name)
     }
   }
 

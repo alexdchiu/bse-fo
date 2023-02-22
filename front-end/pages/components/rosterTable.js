@@ -124,10 +124,6 @@ const rosterTable = ({currRoster, seasonStats}) => {
     }
   }, [selectedPlayer])
 
-  // console.log('aaa', seasonStats)
-
-  // console.log(currPlayersData, playersData, currRoster)
-  console.log('selected player', selectedPlayer)
   return (
     
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-14">
@@ -215,6 +211,7 @@ const rosterTable = ({currRoster, seasonStats}) => {
 
         {showPlayerTable && 
           <PlayerCareerTable 
+          playerProfile={playerProfile}
           showRosterTable={showRosterTable}
           setShowRosterTable={setShowRosterTable}
           setShowModal={setShowModal}

@@ -75,17 +75,11 @@ const PlayerSelect = ({currRoster, seasonStats}) => {
   // }
 
   useEffect(() => {
-    axios.get('api/allTeams').then((response) => {
+    axios.get('api/standings').then((response) => {
       setAllTeams(response.data)
     })
   }, [])
 
-  // console.log(allTeams, conferences)
-  // console.log(currRoster)
-  // console.log('playerA', playerAName, 'playerB', playerBName)
-
-  // console.log('ss', seasonStats?.players)
-  // console.log('111', players, seasonStats)
 
 
   return (

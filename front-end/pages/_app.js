@@ -21,8 +21,6 @@ function MyApp({ Component, pageProps }) {
         setCurrRoster(firstResponse?.data.currTeam.players)
         setSeasonStats(thirdResponse?.data)
 
-        console.log('tchang', firstResponse.data, thirdResponse.data)
-
         return {firstResponse: firstResponse, thirdResponse: thirdResponse}
       }
 

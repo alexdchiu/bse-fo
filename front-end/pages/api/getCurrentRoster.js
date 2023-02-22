@@ -8,11 +8,13 @@ const currTeamRoster = async (req, res) => {
 
   const url = `http://api.sportradar.us/nba/trial/v7/${language_code}/teams/${team_id}/profile.json?api_key=${key}`
   
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+
+  await delay(2000)
+
   const data = await axios.get(url).then((response) => {
     return response.data
   })
-
-  console.log('aaa', data)
 
   res.json({
     currTeam: data

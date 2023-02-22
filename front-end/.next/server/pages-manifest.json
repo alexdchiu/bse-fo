@@ -2,8 +2,10 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/[slug]": "pages/[slug].js",
   "/roster": "pages/roster.js",
-  "/api/players": "pages/api/players.js",
-  "/api/playerProfile": "pages/api/playerProfile.js"
+  "/schedule": "pages/schedule.js",
+  "/[slug]": "pages/[slug].js",
+  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
+  "/api/standings": "pages/api/standings.js",
+  "/api/seasonalStats": "pages/api/seasonalStats.js"
 }
