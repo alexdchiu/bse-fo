@@ -21,7 +21,7 @@ const teamStats = async (req, res) => {
     return response.data
   })
   
-  res.json(data)
+  res.json({data, url})
 }
 
 export default teamStats
