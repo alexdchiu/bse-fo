@@ -1,0 +1,326 @@
+"use strict";
+(() => {
+var exports = {};
+exports.id = 640;
+exports.ids = [640];
+exports.modules = {
+
+/***/ 9648:
+/***/ ((module) => {
+
+module.exports = import("axios");;
+
+/***/ }),
+
+/***/ 4280:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9648);
+/* harmony import */ var _sample_api_responses_playerProfile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8683);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([axios__WEBPACK_IMPORTED_MODULE_0__]);
+axios__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
+
+
+const playerData = async (req, res)=>{
+    const playerDetails = _sample_api_responses_playerProfile__WEBPACK_IMPORTED_MODULE_1__/* .playerProfile */ .Z;
+    const url = "https://data.nba.net/data/10s/prod/v1/2022/players.json";
+    const allPlayers = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(url).then((response)=>{
+        return response.data.league.standard;
+    });
+    res.json({
+        playerDetails,
+        allPlayers: allPlayers
+    });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (playerData);
+
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } });
+
+/***/ }),
+
+/***/ 8683:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (/* binding */ playerProfile)
+/* harmony export */ });
+const playerProfile ={
+  "id": "c6289b1b-7bb2-4ee6-8111-1a6e96aa9104",
+  "status": "ACT",
+  "full_name": "Cam Thomas",
+  "first_name": "Cam",
+  "last_name": "Thomas",
+  "abbr_name": "C.Thomas",
+  "height": 75,
+  "weight": 210,
+  "position": "G",
+  "primary_position": "SG",
+  "jersey_number": "24",
+  "experience": "1",
+  "college": "LSU",
+  "high_school": "Oak Hill Academy (VA)",
+  "birth_place": "Yokosuka,, JPN",
+  "birthdate": "2001-10-13",
+  "updated": "2022-11-02T17:25:43Z",
+  "sr_id": "sr:player:2081895",
+  "rookie_year": 2021,
+  "reference": "1630560",
+  "league": {
+    "id": "4353138d-4c22-4396-95d8-5f587d2df25c",
+    "name": "NBA",
+    "alias": "NBA"
+  },
+  "team": {
+    "id": "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c",
+    "name": "Nets",
+    "market": "Brooklyn",
+    "alias": "BKN",
+    "sr_id": "sr:team:3436",
+    "reference": "1610612751"
+  },
+  "draft": {
+    "team_id": "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c",
+    "year": 2021,
+    "round": "1",
+    "pick": "27"
+  },
+  "seasons": [
+    {
+      "id": "5027b6ac-731c-4622-8d69-d863ae7c626b",
+      "year": 2022,
+      "type": "REG",
+      "teams": [
+        {
+          "id": "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c",
+          "name": "Nets",
+          "market": "Brooklyn",
+          "alias": "BKN",
+          "sr_id": "sr:team:3436",
+          "reference": "1610612751",
+          "total": {
+            "games_played": 40,
+            "games_started": 3,
+            "minutes": 658.0,
+            "field_goals_made": 141,
+            "field_goals_att": 310,
+            "field_goals_pct": 0.455,
+            "two_points_made": 108,
+            "two_points_att": 227,
+            "two_points_pct": 0.476,
+            "three_points_made": 33,
+            "three_points_att": 83,
+            "three_points_pct": 0.398,
+            "blocked_att": 10,
+            "free_throws_made": 110,
+            "free_throws_att": 131,
+            "free_throws_pct": 0.84,
+            "offensive_rebounds": 6,
+            "defensive_rebounds": 61,
+            "rebounds": 67,
+            "assists": 60,
+            "turnovers": 41,
+            "assists_turnover_ratio": 1.46,
+            "steals": 14,
+            "blocks": 5,
+            "personal_fouls": 41,
+            "tech_fouls": 0,
+            "points": 425,
+            "flagrant_fouls": 0,
+            "ejections": 0,
+            "foulouts": 0,
+            "true_shooting_att": 367.64,
+            "true_shooting_pct": 0.578,
+            "efficiency": 340,
+            "points_off_turnovers": 73,
+            "points_in_paint": 152,
+            "points_in_paint_made": 76,
+            "points_in_paint_att": 147,
+            "points_in_paint_pct": 0.517,
+            "effective_fg_pct": 0.508,
+            "double_doubles": 0,
+            "triple_doubles": 0,
+            "fouls_drawn": 89,
+            "offensive_fouls": 2,
+            "fast_break_pts": 33,
+            "fast_break_att": 23,
+            "fast_break_made": 11,
+            "fast_break_pct": 0.478,
+            "coach_ejections": 0,
+            "second_chance_pct": 0.611,
+            "second_chance_pts": 33,
+            "second_chance_att": 18,
+            "second_chance_made": 11,
+            "minus": 1509,
+            "plus": 1570,
+            "coach_tech_fouls": 0
+          },
+          "average": {
+            "minutes": 16.5,
+            "points": 10.6,
+            "off_rebounds": 0.15,
+            "def_rebounds": 1.53,
+            "rebounds": 1.68,
+            "assists": 1.5,
+            "steals": 0.35,
+            "blocks": 0.13,
+            "turnovers": 1.03,
+            "personal_fouls": 1.03,
+            "flagrant_fouls": 0.0,
+            "blocked_att": 0.25,
+            "field_goals_made": 3.53,
+            "field_goals_att": 7.75,
+            "three_points_made": 0.83,
+            "three_points_att": 2.08,
+            "free_throws_made": 2.75,
+            "free_throws_att": 3.28,
+            "two_points_made": 2.7,
+            "two_points_att": 5.68,
+            "efficiency": 8.5,
+            "true_shooting_att": 9.19,
+            "points_off_turnovers": 1.83,
+            "points_in_paint_made": 1.9,
+            "points_in_paint_att": 3.68,
+            "points_in_paint": 3.8,
+            "fouls_drawn": 2.23,
+            "offensive_fouls": 0.05,
+            "fast_break_pts": 0.83,
+            "fast_break_att": 0.58,
+            "fast_break_made": 0.28,
+            "second_chance_pts": 0.83,
+            "second_chance_att": 0.45,
+            "second_chance_made": 0.28
+          }
+        }
+      ]
+    },
+    {
+      "id": "16d6292c-25c6-4487-aa90-912c1e09170b",
+      "year": 2021,
+      "type": "REG",
+      "teams": [
+        {
+          "id": "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c",
+          "name": "Nets",
+          "market": "Brooklyn",
+          "alias": "BKN",
+          "sr_id": "sr:team:3436",
+          "reference": "1610612751",
+          "total": {
+            "games_played": 67,
+            "games_started": 2,
+            "minutes": 1176.0,
+            "field_goals_made": 218,
+            "field_goals_att": 503,
+            "field_goals_pct": 0.433,
+            "two_points_made": 171,
+            "two_points_att": 329,
+            "two_points_pct": 0.52,
+            "three_points_made": 47,
+            "three_points_att": 174,
+            "three_points_pct": 0.27,
+            "blocked_att": 27,
+            "free_throws_made": 87,
+            "free_throws_att": 105,
+            "free_throws_pct": 0.829,
+            "offensive_rebounds": 16,
+            "defensive_rebounds": 145,
+            "rebounds": 161,
+            "assists": 78,
+            "turnovers": 55,
+            "assists_turnover_ratio": 1.42,
+            "steals": 33,
+            "blocks": 8,
+            "personal_fouls": 66,
+            "tech_fouls": 0,
+            "points": 570,
+            "flagrant_fouls": 0,
+            "ejections": 0,
+            "foulouts": 0,
+            "true_shooting_att": 549.2,
+            "true_shooting_pct": 0.519,
+            "efficiency": 492,
+            "points_off_turnovers": 77,
+            "points_in_paint": 198,
+            "points_in_paint_made": 99,
+            "points_in_paint_att": 184,
+            "points_in_paint_pct": 0.538,
+            "effective_fg_pct": 0.48,
+            "double_doubles": 0,
+            "triple_doubles": 0,
+            "fouls_drawn": 82,
+            "offensive_fouls": 6,
+            "fast_break_pts": 74,
+            "fast_break_att": 51,
+            "fast_break_made": 29,
+            "fast_break_pct": 0.569,
+            "coach_ejections": 0,
+            "second_chance_pct": 0.442,
+            "second_chance_pts": 52,
+            "second_chance_att": 43,
+            "second_chance_made": 19,
+            "minus": 2770,
+            "plus": 2631,
+            "coach_tech_fouls": 0
+          },
+          "average": {
+            "minutes": 17.6,
+            "points": 8.5,
+            "off_rebounds": 0.24,
+            "def_rebounds": 2.16,
+            "rebounds": 2.4,
+            "assists": 1.2,
+            "steals": 0.49,
+            "blocks": 0.12,
+            "turnovers": 0.82,
+            "personal_fouls": 0.99,
+            "flagrant_fouls": 0.0,
+            "blocked_att": 0.4,
+            "field_goals_made": 3.25,
+            "field_goals_att": 7.51,
+            "three_points_made": 0.7,
+            "three_points_att": 2.6,
+            "free_throws_made": 1.3,
+            "free_throws_att": 1.57,
+            "two_points_made": 2.55,
+            "two_points_att": 4.91,
+            "efficiency": 7.34,
+            "true_shooting_att": 8.2,
+            "points_off_turnovers": 1.15,
+            "points_in_paint_made": 1.48,
+            "points_in_paint_att": 2.75,
+            "points_in_paint": 2.96,
+            "fouls_drawn": 1.22,
+            "offensive_fouls": 0.09,
+            "fast_break_pts": 1.1,
+            "fast_break_att": 0.76,
+            "fast_break_made": 0.43,
+            "second_chance_pts": 0.78,
+            "second_chance_att": 0.64,
+            "second_chance_made": 0.28
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__(4280));
+module.exports = __webpack_exports__;
+
+})();

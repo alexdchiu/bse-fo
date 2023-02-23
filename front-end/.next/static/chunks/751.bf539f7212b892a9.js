@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[751],{8751:function(s,e,c){c.r(e);var t=c(5893);let a=()=>(0,t.jsx)("div",{children:(0,t.jsx)("img",{src:"https://www.barclayscenter.com/assets/img/about-1170x450-d9c047de75.jpg"})});e.default=a}}]);
