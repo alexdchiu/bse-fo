@@ -9,24 +9,25 @@ function MyApp({ Component, pageProps }) {
     const [seasonStats, setSeasonStats] = useState()
     const [player, setPlayer] = useState()
 
-
-  console.log('p123',process.env.NEXT_PUBLIC_SPORTSRADAR_API_KEY)
-
     useEffect(() => {
-      const delay = ms => new Promise(res => setTimeout(res, ms));
+      // const delay = ms => new Promise(res => setTimeout(res, ms));
 
-      async function getData () {
-        const [firstResponse, secondResponse, thirdResponse] = await Promise.all([axios.get('/api/getCurrentRoster'),
-        await delay(2000),
-        axios.get('/api/seasonalStats')])
+      // async function getData () {
+      //   const [firstResponse, secondResponse, thirdResponse] = await Promise.all([axios.get('/api/getCurrentRoster'),
+      //   await delay(2000),
+      //   axios.get('/api/seasonalStats')])
 
-        setCurrRoster(firstResponse?.data.currTeam?.players)
-        setSeasonStats(thirdResponse?.data)
+      //   setCurrRoster(firstResponse?.data.currTeam?.players)
+      //   setSeasonStats(thirdResponse?.data)
+         
 
-        return {firstResponse: firstResponse, thirdResponse: thirdResponse}
-      }
+      //   return {firstResponse: firstResponse, thirdResponse: thirdResponse}
+      // }
 
-      let responses = getData()
+      setCurrRoster({})
+      setSeasonStats({})
+
+      // let responses = getData()
 
 
 

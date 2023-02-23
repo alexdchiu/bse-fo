@@ -140,11 +140,6 @@ function MyApp({ Component , pageProps  }) {
         })
     });
 }
-MyApp.getInitialProps = async ()=>{
-    return {
-        props: {}
-    };
-};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyApp);
 
 __webpack_async_result__();
