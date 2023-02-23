@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 
 
 const Roster = ({currRoster, seasonStats}) => {
+  console.log(currRoster)
   // axios.get('/api/players').then((data) => {
   //   console.log(data)
   // })

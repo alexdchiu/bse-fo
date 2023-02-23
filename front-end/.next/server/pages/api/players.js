@@ -36,7 +36,6 @@ const getPlayerProfile = async (req, res)=>{
     const data = await axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(url).then((response)=>{
         return response.data;
     });
-    console.log("hihi", data);
     res.json(data);
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPlayerProfile);

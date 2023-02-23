@@ -13,7 +13,6 @@ const standings = async (req, res) => {
   const url = `http://api.sportradar.us/nba/trial/v7/${language_code}/seasons/${season_year}/${season_type}/standings.json?api_key=${key}`
   
   const data = await axios.get(url).then((response) => {
-    console.log('123', response.data)
     return response.data
   })
 

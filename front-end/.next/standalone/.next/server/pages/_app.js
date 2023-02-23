@@ -85,7 +85,8 @@ __webpack_async_result__();
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "getStaticProps": () => (/* binding */ getStaticProps)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
@@ -93,52 +94,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8894);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9648);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_layout__WEBPACK_IMPORTED_MODULE_2__, axios__WEBPACK_IMPORTED_MODULE_3__]);
 ([_components_layout__WEBPACK_IMPORTED_MODULE_2__, axios__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
 
 
 
 
-
-function MyApp({ Component , pageProps  }) {
-    const [currRoster, setCurrRoster] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)();
-    const [seasonStats, setSeasonStats] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)();
-    const [player, setPlayer] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)();
-    console.log("p123", "pctnev2hp8f3fv4nwuyvwp5z");
-    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(()=>{
-        const delay = (ms)=>new Promise((res)=>setTimeout(res, ms));
-        async function getData() {
-            const [firstResponse, secondResponse, thirdResponse] = await Promise.all([
-                axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/getCurrentRoster"),
-                await delay(2000),
-                axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("/api/seasonalStats")
-            ]);
-            setCurrRoster(firstResponse?.data.currTeam?.players);
-            setSeasonStats(thirdResponse?.data);
-            return {
-                firstResponse: firstResponse,
-                thirdResponse: thirdResponse
-            };
-        }
-        let responses = getData();
-    // axios.get('/api/getCurrentRoster').then((response) => {
-    //   setCurrRoster(response?.data.currTeam.players)
-    // })
-    }, []);
-    // useEffect (() => {
-    //   axios.get('/api/seasonalStats').then((response) => {
-    //     setSeasonStats(response?.data)
-    //   })
-    // }, [currRoster])
+function MyApp({ Component , pageProps: { ...props }  }) {
+    console.log("fadsfdsafaaaaaaaa", props);
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
-        children: currRoster && seasonStats && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
-            ...pageProps,
-            currRoster: currRoster,
-            seasonStats: seasonStats
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+            ...props
         })
     });
+}
+async function getStaticProps(ctx) {
+    const delay = (ms)=>new Promise((res)=>setTimeout(res, ms));
+    const season_year = "2022";
+    const season_type = "REG";
+    const seasonStatsURL = `http://api.sportradar.us/nba/trial/v7/${language_code}/seasons/${season_year}/${season_type}/teams/${team_id}/statistics.json?api_key=${"pctnev2hp8f3fv4nwuyvwp5z"}`;
+    const team_id = "583ec9d6-fb46-11e1-82cb-f4ce4684ea4c";
+    const language_code = "en";
+    const key = `${"pctnev2hp8f3fv4nwuyvwp5z"}`;
+    const currRosterURL = `http://api.sportradar.us/nba/trial/v7/${language_code}/teams/${team_id}/profile.json?api_key=${key}`;
+    const [firstResponse, secondResponse, thirdResponse] = await Promise.all([
+        axios__WEBPACK_IMPORTED_MODULE_3__["default"].get(currRosterURL),
+        await delay(2000),
+        axios__WEBPACK_IMPORTED_MODULE_3__["default"].get(seasonStatsURL)
+    ]);
+    return {
+        props: {
+            currRoster: firstResponse?.data.data.currTeam?.players,
+            seasonStats: thirdResponse?.data.data
+        }
+    };
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyApp);
 

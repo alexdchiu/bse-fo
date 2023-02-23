@@ -15,7 +15,6 @@ const getPlayerProfile = async (req, res) => {
     return response.data
   })
 
-  console.log('hihi', data)
   res.json(data)
 
 }
