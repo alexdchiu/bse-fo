@@ -1,48 +1,38 @@
 {
   "../components/layout.js -> ./navBar.js": {
-    "id": 1446,
+    "id": "../components/layout.js -> ./navBar.js",
     "files": [
-      "static/chunks/446.e27d324f50643bb5.js"
+      "static/chunks/components_navBar_js.js"
     ]
   },
-  "../components/playerSelect.js -> ./radarGraph": {
-    "id": 784,
-    "files": []
-  },
   "../components/rosterTable.js -> ./playerCard": {
-    "id": 1653,
+    "id": "../components/rosterTable.js -> ./playerCard",
     "files": [
-      "static/chunks/653.4b5d16389d80bb0f.js"
+      "static/chunks/components_playerCard_js.js"
     ]
   },
   "../components/rosterTable.js -> ./playerCareerStatsTable": {
-    "id": 5181,
+    "id": "../components/rosterTable.js -> ./playerCareerStatsTable",
     "files": [
-      "static/chunks/181.381713d0edbe336f.js"
-    ]
-  },
-  "[slug].js -> ../components/opponentRosterTable.js": {
-    "id": 9325,
-    "files": [
-      "static/chunks/325.0f2ca126f096b08e.js"
+      "static/chunks/components_playerCareerStatsTable_js.js"
     ]
   },
   "index.js -> ../components/homePage": {
-    "id": 6065,
+    "id": "index.js -> ../components/homePage",
     "files": [
-      "static/chunks/65.346994426df4d55b.js"
+      "static/chunks/components_homePage_js.js"
     ]
   },
   "roster.js -> ../components/rosterTable": {
-    "id": 2503,
+    "id": "roster.js -> ../components/rosterTable",
     "files": [
-      "static/chunks/503.c2589739b4395956.js"
+      "static/chunks/components_rosterTable_js.js"
     ]
   },
   "schedule.js -> ../components/scheduleTimeline.js": {
-    "id": 9317,
+    "id": "schedule.js -> ../components/scheduleTimeline.js",
     "files": [
-      "static/chunks/317.44233506cb0c19cc.js"
+      "static/chunks/components_scheduleTimeline_js.js"
     ]
   }
 }

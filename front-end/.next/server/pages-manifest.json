@@ -1,17 +1,10 @@
 {
-  "/[slug]": "pages/[slug].html",
-  "/api/getCurrentRoster": "pages/api/getCurrentRoster.js",
-  "/_error": "pages/_error.js",
-  "/api/playerProfile": "pages/api/playerProfile.js",
-  "/api/schedule": "pages/api/schedule.js",
-  "/api/seasonalStats": "pages/api/seasonalStats.js",
-  "/api/standings": "pages/api/standings.js",
-  "/comparison": "pages/comparison.html",
-  "/": "pages/index.html",
-  "/schedule": "pages/schedule.html",
-  "/api/players": "pages/api/players.js",
   "/_app": "pages/_app.js",
-  "/roster": "pages/roster.html",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/api/standings": "pages/api/standings.js",
+  "/api/schedule": "pages/api/schedule.js",
+  "/schedule": "pages/schedule.js",
+  "/roster": "pages/roster.js",
+  "/": "pages/index.js"
 }
