@@ -1,51 +1,48 @@
 {
-  "[slug].js -> ./components/opponentRosterTable.js": {
-    "id": 4158,
+  "../components/layout.js -> ./navBar.js": {
+    "id": 1446,
     "files": [
-      "static/chunks/158.48c7d361c52288a0.js"
+      "static/chunks/446.e27d324f50643bb5.js"
     ]
   },
-  "components/layout.js -> ./navBar.js": {
-    "id": 4786,
+  "../components/playerSelect.js -> ./radarGraph": {
+    "id": 784,
+    "files": []
+  },
+  "../components/rosterTable.js -> ./playerCard": {
+    "id": 1653,
     "files": [
-      "static/chunks/786.7f1c87c1f8d23940.js"
+      "static/chunks/653.4b5d16389d80bb0f.js"
     ]
   },
-  "components/playerSelect.js -> ./radarGraph": {
-    "id": 5836,
+  "../components/rosterTable.js -> ./playerCareerStatsTable": {
+    "id": 5181,
     "files": [
-      "static/chunks/261-c8e694b4ca8b0db6.js",
-      "static/chunks/836.9a1b6ea5a9a35e6d.js"
+      "static/chunks/181.381713d0edbe336f.js"
     ]
   },
-  "components/rosterTable.js -> ./playerCard": {
-    "id": 9140,
+  "[slug].js -> ../components/opponentRosterTable.js": {
+    "id": 9325,
     "files": [
-      "static/chunks/140.77e6a89ffae25f06.js"
+      "static/chunks/325.0f2ca126f096b08e.js"
     ]
   },
-  "components/rosterTable.js -> ./playerCareerStatsTable": {
-    "id": 3571,
+  "index.js -> ../components/homePage": {
+    "id": 6065,
     "files": [
-      "static/chunks/571.29196a775edd75a9.js"
+      "static/chunks/65.346994426df4d55b.js"
     ]
   },
-  "index.js -> ./components/homePage": {
-    "id": 8751,
+  "roster.js -> ../components/rosterTable": {
+    "id": 2503,
     "files": [
-      "static/chunks/751.bf539f7212b892a9.js"
+      "static/chunks/503.c2589739b4395956.js"
     ]
   },
-  "roster.js -> ./components/rosterTable": {
-    "id": 6646,
+  "schedule.js -> ../components/scheduleTimeline.js": {
+    "id": 9317,
     "files": [
-      "static/chunks/646.045c5cd5ba416c9d.js"
-    ]
-  },
-  "schedule.js -> ./components/scheduleTimeline.js": {
-    "id": 522,
-    "files": [
-      "static/chunks/522.ded6040d4a90ea9e.js"
+      "static/chunks/317.44233506cb0c19cc.js"
     ]
   }
 }

@@ -2,7 +2,7 @@
 (() => {
 var exports = {};
 exports.id = 686;
-exports.ids = [686,888,709,389];
+exports.ids = [686];
 exports.modules = {
 
 /***/ 1697:
@@ -35,10 +35,10 @@ const Roster = ({ currRoster , seasonStats  })=>{
     //   suspense: true,
     // });
     // console.log('a123', currRoster, seasonStats)
-    const RosterTable = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(()=>__webpack_require__.e(/* import() */ 646).then(__webpack_require__.bind(__webpack_require__, 6646)), {
+    const RosterTable = next_dynamic__WEBPACK_IMPORTED_MODULE_2___default()(()=>__webpack_require__.e(/* import() */ 503).then(__webpack_require__.bind(__webpack_require__, 2503)), {
         loadableGenerated: {
             modules: [
-                "roster.js -> " + "./components/rosterTable"
+                "roster.js -> " + "../components/rosterTable"
             ]
         },
         suspense: true

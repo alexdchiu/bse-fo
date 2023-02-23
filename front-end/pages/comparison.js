@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import RadarGraph from './components/radarGraph'
-import PlayerSelect from './components/playerSelect'
+import RadarGraph from '../components/radarGraph'
+import PlayerSelect from '../components/playerSelect'
 
 const Comparison = ({currRoster, seasonStats}) => {
   return (

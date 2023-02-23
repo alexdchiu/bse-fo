@@ -5,7 +5,7 @@ const Schedule = () => {
   const [city, setCity] = useState()
   const [teamName, setTeamName] = useState()
   
-  const OppRosterTable = dynamic(() => import('./components/opponentRosterTable.js'), {
+  const OppRosterTable = dynamic(() => import('../components/opponentRosterTable.js'), {
     suspense: true,
   });
 

@@ -2,7 +2,7 @@
 (() => {
 var exports = {};
 exports.id = 332;
-exports.ids = [332,888,709,389];
+exports.ids = [332];
 exports.modules = {
 
 /***/ 2813:
@@ -22,10 +22,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Schedule = ()=>{
-    const Timeline = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(()=>__webpack_require__.e(/* import() */ 522).then(__webpack_require__.bind(__webpack_require__, 522)), {
+    const Timeline = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(()=>__webpack_require__.e(/* import() */ 317).then(__webpack_require__.bind(__webpack_require__, 9317)), {
         loadableGenerated: {
             modules: [
-                "schedule.js -> " + "./components/scheduleTimeline.js"
+                "schedule.js -> " + "../components/scheduleTimeline.js"
             ]
         },
         suspense: true

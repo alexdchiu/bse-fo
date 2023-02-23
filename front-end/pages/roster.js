@@ -14,7 +14,7 @@ const Roster = ({currRoster, seasonStats}) => {
   //   suspense: true,
   // });
   // console.log('a123', currRoster, seasonStats)
-  const RosterTable = dynamic(() => import('./components/rosterTable'), {
+  const RosterTable = dynamic(() => import('../components/rosterTable'), {
     suspense: true,
   });
   // const PlayerCareerStatsTable = dynamic(() => import('./components/playerCareerStatsTable'), {

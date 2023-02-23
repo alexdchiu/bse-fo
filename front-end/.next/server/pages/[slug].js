@@ -2,7 +2,7 @@
 (() => {
 var exports = {};
 exports.id = 219;
-exports.ids = [219,709];
+exports.ids = [219];
 exports.modules = {
 
 /***/ 2481:
@@ -24,10 +24,10 @@ __webpack_require__.r(__webpack_exports__);
 const Schedule = ()=>{
     const [city, setCity] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)();
     const [teamName, setTeamName] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)();
-    const OppRosterTable = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(()=>__webpack_require__.e(/* import() */ 158).then(__webpack_require__.bind(__webpack_require__, 4158)), {
+    const OppRosterTable = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(()=>__webpack_require__.e(/* import() */ 325).then(__webpack_require__.bind(__webpack_require__, 9325)), {
         loadableGenerated: {
             modules: [
-                "[slug].js -> " + "./components/opponentRosterTable.js"
+                "[slug].js -> " + "../components/opponentRosterTable.js"
             ]
         },
         suspense: true
